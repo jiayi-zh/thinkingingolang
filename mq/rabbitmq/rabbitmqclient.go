@@ -10,10 +10,12 @@ import (
 )
 
 const (
-	RabbitMQDefaultHost     = "127.0.0.1"
-	RabbitMQDefaultUsername = "guest"
-	RabbitMQDefaultPassword = "guest"
-	RabbitMQDefaultPort     = 5672
+	RabbitMQDefaultHost        = "127.0.0.1"
+	RabbitMQDefaultUsername    = "guest"
+	RabbitMQDefaultPassword    = "guest"
+	RabbitMQDefaultPort        = 5672
+	RabbitMQDefaultVirtualHost = "/"
+	RabbitMQDefaultRoutingKey  = "#"
 )
 
 type RabbitmqClient struct {
@@ -38,6 +40,10 @@ func (rc *RabbitmqClient) Init() {
 	rc.cacheConsumer = make([]*Consumer, 0, 0)
 }
 
+func (rc *RabbitmqClient) IsConnect() bool {
+	return rc.channel != nil
+}
+
 func (rc *RabbitmqClient) Connect(rmd *RabbitMQMetadata) error {
 	if rmd == nil {
 		return errors.New("rabbitmq connect metadata must not blank")
@@ -50,26 +56,37 @@ func (rc *RabbitmqClient) Connect(rmd *RabbitMQMetadata) error {
 func (rc *RabbitmqClient) retryConnectRabbitmq(rmd *RabbitMQMetadata) {
 	uri := rmd.buildConnURI()
 	for range time.Tick(3 * time.Second) {
+		// build tcp connect
 		conn, err := amqp.Dial(uri)
 		if err != nil {
 			fmt.Println(fmt.Sprintf("build rabbitmq connection fail, cause: %v", err))
 			continue
 		}
-
 		// recovery
-		exceptionChn := conn.NotifyClose(make(chan *amqp.Error))
+		exceptionConn := conn.NotifyClose(make(chan *amqp.Error))
 		go func() {
-			for connErr := range exceptionChn {
-				fmt.Println(fmt.Sprintf("rabbitmq exception disconnect, cause: %v", connErr))
+			for connErr := range exceptionConn {
+				rc.channel = nil
+				fmt.Println(fmt.Sprintf("rabbitmq exception connection disconnect, cause: %v", connErr))
 				go rc.retryConnectRabbitmq(rmd)
 			}
 		}()
 
+		// build channel connect
 		channel, err := conn.Channel()
 		if err != nil {
 			fmt.Println(fmt.Sprintf("build rabbitmq channel fail, cause: %v", err))
 			continue
 		}
+		// recovery
+		exceptionChn := channel.NotifyClose(make(chan *amqp.Error))
+		go func() {
+			for connErr := range exceptionChn {
+				rc.channel = nil
+				fmt.Println(fmt.Sprintf("rabbitmq exception channel disconnect, cause: %v", connErr))
+				go rc.retryConnectRabbitmq(rmd)
+			}
+		}()
 		rc.channel = channel
 
 		fmt.Println("rabbitmq connect success")
@@ -141,24 +158,36 @@ func (rc *RabbitmqClient) RegisterConsumer(consumer *Consumer) error {
 	if err != nil {
 		return err
 	}
-	for dvy := range deliveries {
-		go consumer.ConsumeFun(&dvy)
+	for {
+		select {
+		case delivery := <-deliveries:
+			go consumer.ConsumeFun(&delivery)
+		}
+	}
+}
+
+func (rc *RabbitmqClient) Publish2(exchange, key string, mandatory, immediate bool, publish amqp.Publishing) error {
+	if rc.channel == nil {
+		return errors.New("the connection task is not complete")
+	}
+	if err := rc.channel.Publish(exchange, key, mandatory, immediate, publish); err != nil {
+		return err
 	}
 	return nil
 }
 
-func (rc *RabbitmqClient) PublishJson(exchange string, key string, mandatory, immediate bool, obj interface{}) error {
+func (rc *RabbitmqClient) PublishJson(exchange string, key string, obj interface{}) error {
 	if obj == nil {
 		return errors.New("invalid parameter")
+	}
+	if rc.channel == nil {
+		return errors.New("the connection task is not complete")
 	}
 	jsonBytes, err := json.Marshal(obj)
 	if err != nil {
 		return err
 	}
-	if rc.channel == nil {
-		return errors.New("the connection task is not complete")
-	}
-	err = rc.channel.Publish(exchange, key, mandatory, immediate, amqp.Publishing{
+	err = rc.channel.Publish(exchange, key, false, false, amqp.Publishing{
 		Timestamp:   time.Now(),
 		ContentType: "application/json",
 		Body:        jsonBytes,
