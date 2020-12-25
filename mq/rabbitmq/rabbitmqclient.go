@@ -284,7 +284,7 @@ func (rc *RabbitmqClient) RegisterConsumer(consumer *Consumer) error {
 	}
 	go func() {
 		for delivery := range deliveries {
-			dealFun(&delivery, consumer.ConsumeFun)
+			go dealFun(&delivery, consumer.ConsumeFun)
 		}
 	}()
 	return nil
