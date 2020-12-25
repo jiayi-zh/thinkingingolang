@@ -47,6 +47,8 @@ type Exchange struct {
 	Internal   bool
 	NoWait     bool
 	Args       amqp.Table
+
+	cacheFlag bool
 }
 
 func (e *Exchange) verityAndFillDefault() bool {
@@ -74,6 +76,8 @@ type Queue struct {
 	Exclusive  bool
 	NoWait     bool
 	Args       amqp.Table
+
+	cacheFlag bool
 }
 
 func (q *Queue) verityAndFillDefault() bool {
@@ -97,6 +101,12 @@ type Binding struct {
 	RoutingKey string
 	NoWait     bool
 	Args       amqp.Table
+
+	cacheFlag bool
+}
+
+func (b *Binding) ToString() string {
+	return fmt.Sprintf("%s_%s_%s", b.Exchange, b.Queue, b.RoutingKey)
 }
 
 func (b *Binding) verityAndFillDefault() bool {
@@ -129,4 +139,6 @@ type Consumer struct {
 	NoWait      bool
 	Args        amqp.Table
 	ConsumeFun  func(delivery *amqp.Delivery)
+
+	cacheFlag bool
 }
