@@ -284,13 +284,13 @@ func (rc *RabbitmqClient) RegisterConsumer(consumer *Consumer) error {
 	}
 	go func() {
 		for delivery := range deliveries {
-			go dealFun(&delivery, consumer.ConsumeFun)
+			go dealRegisterFun(&delivery, consumer.ConsumeFun, consumer.AutoAck)
 		}
 	}()
 	return nil
 }
 
-func dealFun(delivery *amqp.Delivery, consumeFun func(delivery *amqp.Delivery)) {
+func dealRegisterFun(delivery *amqp.Delivery, consumeFun func(delivery *amqp.Delivery), autoAck bool) {
 	defer func() {
 		err := recover()
 		if err != nil {
@@ -298,20 +298,24 @@ func dealFun(delivery *amqp.Delivery, consumeFun func(delivery *amqp.Delivery)) 
 				"do":    fmt.Sprintf("deal rabbitmq message(%s) fail", string(delivery.Body)),
 				"cause": fmt.Sprintf("%v", err),
 			}).Error()
-			err := delivery.Nack(false, true)
-			if err != nil {
-				logrus.WithFields(logrus.Fields{
-					"do":    fmt.Sprintf("nack rabbitmq message(%s) fail", string(delivery.Body)),
-					"cause": fmt.Sprintf("%v", err),
-				}).Error()
+			if !autoAck {
+				err := delivery.Nack(false, true)
+				if err != nil {
+					logrus.WithFields(logrus.Fields{
+						"do":    fmt.Sprintf("nack rabbitmq message(%s) fail", string(delivery.Body)),
+						"cause": fmt.Sprintf("%v", err),
+					}).Error()
+				}
 			}
 		} else {
-			err = delivery.Ack(false)
-			if err != nil {
-				logrus.WithFields(logrus.Fields{
-					"do":    fmt.Sprintf("ack rabbitmq message(%s) fail", string(delivery.Body)),
-					"cause": fmt.Sprintf("%v", err),
-				}).Error()
+			if !autoAck {
+				err = delivery.Ack(false)
+				if err != nil {
+					logrus.WithFields(logrus.Fields{
+						"do":    fmt.Sprintf("ack rabbitmq message(%s) fail", string(delivery.Body)),
+						"cause": fmt.Sprintf("%v", err),
+					}).Error()
+				}
 			}
 		}
 	}()
