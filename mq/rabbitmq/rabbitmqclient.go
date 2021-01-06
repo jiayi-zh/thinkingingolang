@@ -127,7 +127,7 @@ func (rc *RabbitmqClient) retryConnectRabbitMQ(rmd *RabbitMQMetadata) {
 				}
 			}
 		}()
-		err = channel.Qos(1, 0, false)
+		err = channel.Qos(250, 0, false)
 		if err != nil {
 			logrus.WithFields(logrus.Fields{
 				"do":    "set channel qos fail",
