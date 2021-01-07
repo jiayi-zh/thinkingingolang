@@ -284,13 +284,13 @@ func (rc *RabbitmqClient) RegisterConsumer(consumer *Consumer) error {
 	}
 	go func() {
 		for delivery := range deliveries {
-			go dealRegisterFun(&delivery, consumer.ConsumeFun, consumer.AutoAck)
+			go dealRegisterFun(delivery, consumer.ConsumeFun, consumer.AutoAck)
 		}
 	}()
 	return nil
 }
 
-func dealRegisterFun(delivery *amqp.Delivery, consumeFun func(delivery *amqp.Delivery), autoAck bool) {
+func dealRegisterFun(delivery amqp.Delivery, consumeFun func(delivery *amqp.Delivery), autoAck bool) {
 	defer func() {
 		err := recover()
 		if err != nil {
@@ -319,7 +319,7 @@ func dealRegisterFun(delivery *amqp.Delivery, consumeFun func(delivery *amqp.Del
 			}
 		}
 	}()
-	consumeFun(delivery)
+	consumeFun(&delivery)
 }
 
 /*
