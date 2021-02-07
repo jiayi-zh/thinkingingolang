@@ -1,0 +1,650 @@
+[
+  {
+    "resourceId": "11063",
+    "permissionId": "11063",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "0",
+    "parentId": "0",
+    "name": "视频"
+  },
+  {
+    "resourceId": "11064",
+    "permissionId": "11064",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11063",
+    "parentId": "11063",
+    "name": "视频设备"
+  },
+  {
+    "resourceId": "11066",
+    "permissionId": "11066",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11064",
+    "parentId": "11064",
+    "name": "查看",
+    "operationOffset": 2
+  },
+  {
+    "resourceId": "11068",
+    "permissionId": "11068",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11064",
+    "parentId": "11064",
+    "name": "设备对讲",
+    "operationOffset": 3
+  },
+  {
+    "resourceId": "11070",
+    "permissionId": "11070",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11064",
+    "parentId": "11064",
+    "name": "接收事件",
+    "operationOffset": 63
+  },
+  {
+    "resourceId": "11072",
+    "permissionId": "11072",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11063",
+    "parentId": "11063",
+    "name": "监控点"
+  },
+  {
+    "resourceId": "11074",
+    "permissionId": "11074",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11072",
+    "parentId": "11072",
+    "operationOffset": 2,
+    "name": "查看"
+  },
+  {
+    "resourceId": "11076",
+    "permissionId": "11076",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11072",
+    "parentId": "11072",
+    "operationOffset": 3,
+    "name": "预览"
+  },
+  {
+    "resourceId": "11078",
+    "permissionId": "11078",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11072",
+    "parentId": "11072",
+    "operationOffset": 4,
+    "name": "回放"
+  },
+  {
+    "resourceId": "11080",
+    "permissionId": "11080",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11072",
+    "parentId": "11072",
+    "operationOffset": 5,
+    "name": "云台控制"
+  },
+  {
+    "resourceId": "11082",
+    "permissionId": "11082",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11072",
+    "parentId": "11072",
+    "operationOffset": 6,
+    "name": "参数调节"
+  },
+  {
+    "resourceId": "11084",
+    "permissionId": "11084",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11072",
+    "parentId": "11072",
+    "operationOffset": 7,
+    "name": "录像下载"
+  },
+  {
+    "resourceId": "11086",
+    "permissionId": "11086",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11072",
+    "parentId": "11072",
+    "operationOffset": 63,
+    "name": "接收事件"
+  },
+  {
+    "resourceId": "11088",
+    "permissionId": "11088",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "0",
+    "parentId": "0",
+    "name": "门禁"
+  },
+  {
+    "resourceId": "11089",
+    "permissionId": "11089",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11088",
+    "parentId": "11088",
+    "name": "门禁设备"
+  },
+  {
+    "resourceId": "11091",
+    "permissionId": "11091",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11089",
+    "parentId": "11089",
+    "operationOffset": 2,
+    "name": "查看"
+  },
+  {
+    "resourceId": "11093",
+    "permissionId": "11093",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11089",
+    "parentId": "11089",
+    "operationOffset": 63,
+    "name": "接收事件"
+  },
+  {
+    "resourceId": "11095",
+    "permissionId": "11095",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11088",
+    "parentId": "11088",
+    "name": "门"
+  },
+  {
+    "resourceId": "11097",
+    "permissionId": "11097",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11095",
+    "parentId": "11095",
+    "operationOffset": 2,
+    "name": "查看"
+  },
+  {
+    "resourceId": "11099",
+    "permissionId": "11099",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11095",
+    "parentId": "11095",
+    "operationOffset": 3,
+    "name": "操作"
+  },
+  {
+    "resourceId": "11101",
+    "permissionId": "11101",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11095",
+    "parentId": "11095",
+    "operationOffset": 63,
+    "name": "接收事件"
+  },
+  {
+    "resourceId": "11347",
+    "permissionId": "11347",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11088",
+    "parentId": "11088",
+    "name": "读头"
+  },
+  {
+    "resourceId": "11348",
+    "permissionId": "11348",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11347",
+    "parentId": "11347",
+    "operationOffset": 2,
+    "name": "查看"
+  },
+  {
+    "resourceId": "11350",
+    "permissionId": "11350",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11347",
+    "parentId": "11347",
+    "operationOffset": 3,
+    "name": "配置"
+  },
+  {
+    "resourceId": "11103",
+    "permissionId": "11103",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11088",
+    "parentId": "11088",
+    "name": "输入"
+  },
+  {
+    "resourceId": "11105",
+    "permissionId": "11105",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11103",
+    "parentId": "11103",
+    "operationOffset": 2,
+    "name": "查看"
+  },
+  {
+    "resourceId": "11107",
+    "permissionId": "11107",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11103",
+    "parentId": "11103",
+    "operationOffset": 63,
+    "name": "接收事件"
+  },
+  {
+    "resourceId": "11109",
+    "permissionId": "11109",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11088",
+    "parentId": "11088",
+    "name": "输出"
+  },
+  {
+    "resourceId": "11111",
+    "permissionId": "11111",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11109",
+    "parentId": "11109",
+    "operationOffset": 2,
+    "name": "查看"
+  },
+  {
+    "resourceId": "11113",
+    "permissionId": "11113",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11109",
+    "parentId": "11109",
+    "operationOffset": 3,
+    "name": "输出控制"
+  },
+  {
+    "resourceId": "11115",
+    "permissionId": "11115",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "0",
+    "parentId": "0",
+    "name": "报警"
+  },
+  {
+    "resourceId": "11116",
+    "permissionId": "11116",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11115",
+    "parentId": "11115",
+    "name": "报警设备"
+  },
+  {
+    "resourceId": "11118",
+    "permissionId": "11118",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11116",
+    "parentId": "11116",
+    "operationOffset": 2,
+    "name": "查看"
+  },
+  {
+    "resourceId": "11120",
+    "permissionId": "11120",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11116",
+    "parentId": "11116",
+    "operationOffset": 63,
+    "name": "接收事件"
+  },
+  {
+    "resourceId": "11122",
+    "permissionId": "11122",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11115",
+    "parentId": "11115",
+    "name": "防区"
+  },
+  {
+    "resourceId": "11124",
+    "permissionId": "11124",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11122",
+    "parentId": "11122",
+    "operationOffset": 2,
+    "name": "查看"
+  },
+  {
+    "resourceId": "11126",
+    "permissionId": "11126",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11122",
+    "parentId": "11122",
+    "operationOffset": 3,
+    "name": "操作"
+  },
+  {
+    "resourceId": "11128",
+    "permissionId": "11128",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11122",
+    "parentId": "11122",
+    "operationOffset": 63,
+    "name": "接收事件"
+  },
+  {
+    "resourceId": "11130",
+    "permissionId": "11130",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11115",
+    "parentId": "11115",
+    "name": "子系统"
+  },
+  {
+    "resourceId": "11132",
+    "permissionId": "11132",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11130",
+    "parentId": "11130",
+    "operationOffset": 2,
+    "name": "查看"
+  },
+  {
+    "resourceId": "11134",
+    "permissionId": "11134",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11130",
+    "parentId": "11130",
+    "operationOffset": 3,
+    "name": "操作"
+  },
+  {
+    "resourceId": "11136",
+    "permissionId": "11136",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11130",
+    "parentId": "11130",
+    "operationOffset": 63,
+    "name": "接收事件"
+  },
+  {
+    "resourceId": "11138",
+    "permissionId": "11138",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11115",
+    "parentId": "11115",
+    "name": "输出"
+  },
+  {
+    "resourceId": "11140",
+    "permissionId": "11140",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11138",
+    "parentId": "11138",
+    "operationOffset": 2,
+    "name": "查看"
+  },
+  {
+    "resourceId": "11142",
+    "permissionId": "11142",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11138",
+    "parentId": "11138",
+    "operationOffset": 3,
+    "name": "输出控制"
+  },
+  {
+    "resourceId": "11144",
+    "permissionId": "11144",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "0",
+    "parentId": "0",
+    "name": "楼寓对讲"
+  },
+  {
+    "resourceId": "11145",
+    "permissionId": "11145",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11144",
+    "parentId": "11144",
+    "name": "对接设备"
+  },
+  {
+    "resourceId": "11147",
+    "permissionId": "11147",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11145",
+    "parentId": "11145",
+    "operationOffset": 2,
+    "name": "查看"
+  },
+  {
+    "resourceId": "11149",
+    "permissionId": "11149",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11145",
+    "parentId": "11145",
+    "operationOffset": 63,
+    "name": "接收事件"
+  },
+  {
+    "resourceId": "11151",
+    "permissionId": "11151",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11144",
+    "parentId": "11144",
+    "name": "门"
+  },
+  {
+    "resourceId": "11153",
+    "permissionId": "11153",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11151",
+    "parentId": "11151",
+    "operationOffset": 2,
+    "name": "查看"
+  },
+  {
+    "resourceId": "11155",
+    "permissionId": "11155",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11151",
+    "parentId": "11151",
+    "operationOffset": 3,
+    "name": "操作"
+  },
+  {
+    "resourceId": "11157",
+    "permissionId": "11157",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11151",
+    "parentId": "11151",
+    "operationOffset": 63,
+    "name": "接收事件"
+  },
+  {
+    "resourceId": "11159",
+    "permissionId": "11159",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11144",
+    "parentId": "11144",
+    "name": "输入"
+  },
+  {
+    "resourceId": "11161",
+    "permissionId": "11161",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11159",
+    "parentId": "11159",
+    "operationOffset": 2,
+    "name": "查看"
+  },
+  {
+    "resourceId": "11163",
+    "permissionId": "11163",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11159",
+    "parentId": "11159",
+    "operationOffset": 63,
+    "name": "接收事件"
+  },
+  {
+    "resourceId": "11165",
+    "permissionId": "11165",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11144",
+    "parentId": "11144",
+    "name": "输出"
+  },
+  {
+    "resourceId": "11167",
+    "permissionId": "11167",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11165",
+    "parentId": "11165",
+    "operationOffset": 2,
+    "name": "查看"
+  },
+  {
+    "resourceId": "11169",
+    "permissionId": "11169",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11165",
+    "parentId": "11165",
+    "operationOffset": 3,
+    "name": "输出控制"
+  },
+  {
+    "resourceId": "11171",
+    "permissionId": "11171",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "0",
+    "parentId": "0",
+    "name": "泛感知"
+  },
+  {
+    "resourceId": "11172",
+    "permissionId": "11172",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11171",
+    "parentId": "11171",
+    "name": "泛感知设备"
+  },
+  {
+    "resourceId": "11174",
+    "permissionId": "11174",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11172",
+    "parentId": "11172",
+    "operationOffset": 2,
+    "name": "查看"
+  },
+  {
+    "resourceId": "11176",
+    "permissionId": "11176",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11172",
+    "parentId": "11172",
+    "operationOffset": 63,
+    "name": "接收事件"
+  },
+  {
+    "resourceId": "11178",
+    "permissionId": "11178",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11171",
+    "parentId": "11171",
+    "name": "通道 "
+  },
+  {
+    "resourceId": "11180",
+    "permissionId": "11180",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11178",
+    "parentId": "11178",
+    "operationOffset": 2,
+    "name": "查看"
+  },
+  {
+    "resourceId": "11182",
+    "permissionId": "11182",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11178",
+    "parentId": "11178",
+    "operationOffset": 3,
+    "name": "操作"
+  },
+  {
+    "resourceId": "11184",
+    "permissionId": "11184",
+    "resourceType": "web_set",
+    "parentResourceType": "web_set",
+    "parentResourceId": "11178",
+    "parentId": "11178",
+    "operationOffset": 63,
+    "name": "接收事件"
+  }
+]
